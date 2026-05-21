@@ -1,0 +1,146 @@
+# Hotwords / Custom Vocabulary — Alstom Innovation Station
+# Paste these (comma-separated or one per line, depending on Tavus UI) into the
+# "Custom Vocabulary" or "Pronunciation Hints" section of your Tavus persona.
+# This dramatically improves speech-to-text accuracy for Alstom-specific terms.
+
+# Company & people
+Alstom
+Innovation Station
+APAC
+Lena
+Joanne
+Alan
+Amrit Raj Singh
+ISVILANONDA Vara
+MACKINTOSH Christopher
+SHARMA Swastik
+
+# Alstom product brands
+Citadis
+Coradia
+Coradia Stream
+Coradia iLint
+Avelia
+Avelia Liberty
+Avelia Horizon
+Metropolis
+Innovia
+Adessia
+Traxx
+Urbalis
+Urbalis Fluence
+Hesop
+HealthHub
+ARTE
+H2 ICE
+Flexx
+Dispen
+Agate
+Frenium
+Mitrac
+RER NG
+TGV Inouï
+Zefiro
+
+# Clients & partners
+SBS Transit
+SBST
+SMRT
+LTA
+Land Transport Authority
+Prasarana
+NEL
+North East Line
+BPLRT
+Bukit Panjang LRT
+Changi APM
+Uptale
+Nandina REM
+A*STAR
+ARTC
+Microelectrica
+
+# 3D Printing terms
+3D Printing
+3DP
+3DPaaS
+additive manufacturing
+Direct Ink Writing
+DIW
+Plasma Spray
+DLP
+SLS
+SLA
+EN45545
+ULTEM
+ULTEM 9085
+316L
+MS1
+PLA
+PETG
+TPU
+
+# Green mobility / sustainability
+OTES
+Optimized Timetable for Energy Savings
+regenerative braking
+BEMU
+NGT
+NGT Trams
+Wellington BEMU
+eco-design
+HVAC
+graphene
+carbon credits
+mobility collage
+
+# Smart mobility / tech
+CBTC
+Computer-Based Train Communication
+ATO
+ETCS
+RTO
+underframe
+digital twin
+IoT
+generative AI
+predictive maintenance
+robotic
+strike
+
+# Immersive Mobility
+VR
+virtual reality
+AR
+augmented reality
+360 camera
+ICP
+Industrial Collaboration Programme
+LMS
+EHS
+T&C
+Test and Commissioning
+Meta Quest
+
+# Geography
+Singapore
+Singaporean
+Bangkok
+Wellington
+Dongguan
+Queensland
+Riyadh
+Punggol
+Ile-de-France
+
+# Misc industry terms
+rolling stock
+signalling
+catenary
+turnkey
+OEM
+bogies
+depot
+dwell time
+strike
+collector shoe

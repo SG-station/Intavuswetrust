@@ -1,0 +1,16 @@
+# Root-level artifacts (not part of any sub-project)
+node_modules/
+package.json
+package-lock.json
+alstom.png
+profile.jpg
+.DS_Store
+
+# Never commit any .env regardless of depth
+**/.env
+**/.env.local
+**/.env.*.local
+
+# Build output
+dist/
+build/

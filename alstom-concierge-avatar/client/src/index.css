@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "League Spartan", "Helvetica Neue", Helvetica, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: #08080F;
+  color: #ffffff;
+}
+
+/* Live indicator pulse */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.55; transform: scale(1.15); }
+}
+.pulse-dot { animation: pulse-dot 1.6s ease-in-out infinite; }
+
+/* Ambient blob animations for idle screen */
+@keyframes blob-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25%      { transform: translate(24px, -18px) scale(1.06); }
+  50%      { transform: translate(-16px, 12px) scale(0.97); }
+  75%      { transform: translate(12px, 22px) scale(1.03); }
+}
+
+@keyframes blob-float-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25%      { transform: translate(-22px, 16px) scale(0.95); }
+  50%      { transform: translate(18px, -14px) scale(1.05); }
+  75%      { transform: translate(-10px, -22px) scale(0.99); }
+}
+
+@keyframes blob-float-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(14px, 20px) scale(1.04); }
+  66%      { transform: translate(-18px, -10px) scale(0.96); }
+}
