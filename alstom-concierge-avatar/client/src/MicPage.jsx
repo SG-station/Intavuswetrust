@@ -78,7 +78,7 @@ export default function MicPage() {
 
       {/* Logo */}
       <img
-        src="/alstom.png"
+        src={import.meta.env.BASE_URL + "alstom.png"}
         alt="Alstom"
         className="absolute top-8 left-1/2 -translate-x-1/2 h-7 w-auto object-contain opacity-50"
         draggable={false}

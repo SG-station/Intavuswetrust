@@ -30,7 +30,14 @@ export default function App() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({}),
       });
-      const data = await res.json();
+      // Guard against HTML responses (e.g. Render cold-start wake-up page)
+      const text = await res.text();
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch {
+        throw new Error("Backend is waking up — please wait 30 seconds and try again");
+      }
       if (!res.ok) {
         throw new Error(
           data?.details?.message ||

@@ -1,9 +1,9 @@
-# Root-level artifacts (not part of any sub-project)
-node_modules/
-package.json
-package-lock.json
-alstom.png
-profile.jpg
+# Root-level artifacts only (leading / anchors to repo root)
+/node_modules/
+/package.json
+/package-lock.json
+/alstom.png
+/profile.jpg
 .DS_Store
 
 # Never commit any .env regardless of depth

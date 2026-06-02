@@ -248,7 +248,7 @@ function PlaceholderContent({ isLoading }) {
       <div className="relative z-10 flex flex-col items-center gap-6">
         <div className="relative">
           <img
-            src="/profile.jpg"
+            src={import.meta.env.BASE_URL + "profile.jpg"}
             alt="AI Avatar"
             className="h-28 w-28 rounded-full object-cover shadow-xl"
             style={{ boxShadow: "0 4px 32px rgba(120,70,255,0.20), 0 2px 12px rgba(0,0,0,0.12)" }}
