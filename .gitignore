@@ -2,8 +2,6 @@
 node_modules/
 package.json
 package-lock.json
-alstom.png
-profile.jpg
 .DS_Store
 
 # Never commit any .env regardless of depth
