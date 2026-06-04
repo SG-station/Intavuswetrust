@@ -187,87 +187,32 @@ export default AvatarFrame;
 
 function PlaceholderContent({ isLoading }) {
   return (
-    <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8 overflow-hidden">
-      {/* Light base — the white "cloud" center */}
-      <div className="absolute inset-0 bg-[#F5F0FF]" />
-
-      {/* Orange glow — top-left */}
-      <div
-        className="absolute rounded-full"
-        style={{
-          width: 620,
-          height: 620,
-          top: "-28%",
-          left: "-22%",
-          background: "radial-gradient(circle, rgba(255,130,60,0.60), transparent 58%)",
-          filter: "blur(80px)",
-          animation: "blob-float 14s ease-in-out infinite",
-        }}
-      />
-      {/* Violet glow — bottom-right */}
-      <div
-        className="absolute rounded-full"
-        style={{
-          width: 560,
-          height: 560,
-          bottom: "-22%",
-          right: "-18%",
-          background: "radial-gradient(circle, rgba(120,70,255,0.55), transparent 58%)",
-          filter: "blur(76px)",
-          animation: "blob-float-2 17s ease-in-out infinite",
-        }}
-      />
-      {/* White highlight — center */}
-      <div
-        className="absolute rounded-full"
-        style={{
-          width: 480,
-          height: 480,
-          top: "15%",
-          left: "20%",
-          background: "radial-gradient(circle, rgba(255,255,255,0.90), transparent 52%)",
-          filter: "blur(60px)",
-          animation: "blob-float-3 20s ease-in-out infinite",
-        }}
-      />
-      {/* Soft pink accent — bottom-left */}
-      <div
-        className="absolute rounded-full"
-        style={{
-          width: 320,
-          height: 320,
-          bottom: "5%",
-          left: "10%",
-          background: "radial-gradient(circle, rgba(255,140,200,0.35), transparent 60%)",
-          filter: "blur(55px)",
-          animation: "blob-float 22s ease-in-out infinite reverse",
-        }}
+    <div className="absolute inset-0 overflow-hidden rounded-3xl bg-black">
+      {/* Looping background video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        src={import.meta.env.BASE_URL + "intro.mp4"}
       />
 
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center gap-6">
-        <div className="relative">
-          <img
-            src={import.meta.env.BASE_URL + "profile.jpg"}
-            alt="AI Avatar"
-            className="h-28 w-28 rounded-full object-cover shadow-xl"
-            style={{ boxShadow: "0 4px 32px rgba(120,70,255,0.20), 0 2px 12px rgba(0,0,0,0.12)" }}
-          />
-          {isLoading && (
-            <div className="absolute -inset-2 rounded-full border-2 border-violet-500/50 border-t-transparent animate-spin" />
-          )}
-        </div>
+      {/* Vignette so text stays readable */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-black/25" />
 
-        <div className="space-y-2.5 max-w-md">
-          <h2 className="text-2xl font-bold tracking-tight" style={{ color: "#1a1035" }}>
-            {isLoading ? "Connecting to your AI Avatar…" : "Meet your AI Avatar"}
+      {/* Centred content */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-5">
+        {isLoading ? (
+          <>
+            <div className="h-10 w-10 rounded-full border-2 border-white/50 border-t-white animate-spin" />
+            <p className="text-white/65 text-base font-medium tracking-wide">Connecting…</p>
+          </>
+        ) : (
+          <h2 className="text-white text-4xl font-bold tracking-tight drop-shadow-lg">
+            Meet your AI avatar
           </h2>
-          <p className="text-sm leading-relaxed font-normal" style={{ color: "rgba(50,30,90,0.55)" }}>
-            {isLoading
-              ? "We're establishing a secure session with the AI Avatar."
-              : "An interactive AI guide to walk you through the Innovation Station. Press the button below to start the conversation."}
-          </p>
-        </div>
+        )}
       </div>
     </div>
   );

@@ -120,6 +120,22 @@ export default function App() {
       <AnimatedBackground />
       <BrandHeader />
 
+      {/* Showroom mode toggle — top-right */}
+      <div className="absolute top-5 right-6 z-30">
+        <button
+          onClick={toggleShowroomMode}
+          className={[
+            "flex items-center gap-2 rounded-full px-4 py-2.5 text-xs font-semibold tracking-wide border transition-all duration-200",
+            isShowroomMode
+              ? "border-alstom-ultramarine bg-alstom-ultramarine/15 text-alstom-ultramarine"
+              : "border-white/15 bg-white/[0.04] text-white/40 hover:border-white/25 hover:text-white/60",
+          ].join(" ")}
+        >
+          <MonitorIcon className="h-3.5 w-3.5" />
+          Showroom mode
+        </button>
+      </div>
+
       <main className="flex-1 flex flex-col items-center justify-center px-6 pt-28 pb-12">
         <AvatarFrame
           ref={avatarRef}
@@ -133,8 +149,6 @@ export default function App() {
           onStart={startConversation}
           onEnd={endConversation}
           error={error}
-          isShowroomMode={isShowroomMode}
-          onToggleShowroom={toggleShowroomMode}
         />
       </main>
 
@@ -143,5 +157,15 @@ export default function App() {
         <span>Powered by Tavus CVI</span>
       </footer>
     </div>
+  );
+}
+
+function MonitorIcon({ className }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="3" width="20" height="14" rx="2" />
+      <line x1="8" y1="21" x2="16" y2="21" />
+      <line x1="12" y1="17" x2="12" y2="21" />
+    </svg>
   );
 }
