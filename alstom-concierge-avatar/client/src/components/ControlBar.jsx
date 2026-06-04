@@ -21,8 +21,8 @@ export default function ControlBar({ status, onStart, onEnd, error }) {
           disabled:opacity-50 disabled:cursor-not-allowed
           text-white px-10 py-4 text-base font-semibold tracking-wide
           transition-all duration-200 active:scale-[0.97]
-          bg-[#3A7D44] hover:bg-[#4a9456]
-          shadow-[0_0_40px_rgba(58,125,68,0.4)] hover:shadow-[0_0_55px_rgba(58,125,68,0.55)]
+          bg-[#22c55e] hover:bg-[#34d058]
+          shadow-[0_0_40px_rgba(34,197,94,0.5)] hover:shadow-[0_0_60px_rgba(34,197,94,0.7)]
         "
       >
         {isLoading ? (

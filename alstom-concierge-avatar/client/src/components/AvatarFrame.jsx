@@ -177,7 +177,7 @@ const AvatarFrame = forwardRef(function AvatarFrame({ conversationUrl, status, i
   }
 
   return (
-    <div className="relative w-full aspect-video max-w-5xl rounded-3xl overflow-hidden shadow-2xl">
+    <div className="relative w-full aspect-video max-w-5xl overflow-hidden shadow-2xl">
       <PlaceholderContent isLoading={isLoading} />
     </div>
   );
@@ -187,7 +187,7 @@ export default AvatarFrame;
 
 function PlaceholderContent({ isLoading }) {
   return (
-    <div className="absolute inset-0 overflow-hidden rounded-3xl bg-black">
+    <div className="absolute inset-0 overflow-hidden bg-black">
       {/* Looping background video */}
       <video
         autoPlay
@@ -209,7 +209,7 @@ function PlaceholderContent({ isLoading }) {
             <p className="text-white/65 text-base font-medium tracking-wide">Connecting…</p>
           </>
         ) : (
-          <h2 className="text-white text-4xl font-bold tracking-tight drop-shadow-lg">
+          <h2 className="text-white text-6xl font-black tracking-tight drop-shadow-lg uppercase">
             Meet your AI avatar
           </h2>
         )}
