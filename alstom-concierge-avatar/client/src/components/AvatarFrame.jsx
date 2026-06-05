@@ -187,23 +187,34 @@ export default AvatarFrame;
 
 function PlaceholderContent({ isLoading }) {
   const bgVideoRef = useRef(null);
+  const [videoFailed, setVideoFailed] = useState(false);
+
   useEffect(() => {
     const v = bgVideoRef.current;
     if (!v) return;
     v.muted = true;
-    v.play().catch(() => {});
+    v.play().catch(() => setVideoFailed(true));
+    // If the video hasn't started loading within 5 s, use fallback
+    const timer = setTimeout(() => {
+      if (v.readyState < 2) setVideoFailed(true);
+    }, 5000);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div className="absolute inset-0 overflow-hidden bg-black">
-      {/* Looping background video — muted set imperatively for Android autoplay */}
+    <div className="absolute inset-0 overflow-hidden bg-[#06060C]">
+      {/* Fallback gradient shown when video is blocked (old/restricted browsers) */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0d1f3c] via-[#08080F] to-[#06060C]" />
+
+      {/* Looping background video — hidden via opacity if it fails */}
       <video
         ref={bgVideoRef}
         autoPlay
         loop
         playsInline
         preload="auto"
-        className="absolute inset-0 w-full h-full object-cover"
+        onError={() => setVideoFailed(true)}
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${videoFailed ? "opacity-0" : "opacity-100"}`}
         src={import.meta.env.BASE_URL + "intro.mp4"}
       />
 
