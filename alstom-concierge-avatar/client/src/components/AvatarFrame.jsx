@@ -186,14 +186,23 @@ const AvatarFrame = forwardRef(function AvatarFrame({ conversationUrl, status, i
 export default AvatarFrame;
 
 function PlaceholderContent({ isLoading }) {
+  const bgVideoRef = useRef(null);
+  useEffect(() => {
+    const v = bgVideoRef.current;
+    if (!v) return;
+    v.muted = true;
+    v.play().catch(() => {});
+  }, []);
+
   return (
     <div className="absolute inset-0 overflow-hidden bg-black">
-      {/* Looping background video */}
+      {/* Looping background video — muted set imperatively for Android autoplay */}
       <video
+        ref={bgVideoRef}
         autoPlay
         loop
-        muted
         playsInline
+        preload="auto"
         className="absolute inset-0 w-full h-full object-cover"
         src={import.meta.env.BASE_URL + "intro.mp4"}
       />
