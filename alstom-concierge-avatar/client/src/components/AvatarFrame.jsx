@@ -186,54 +186,25 @@ const AvatarFrame = forwardRef(function AvatarFrame({ conversationUrl, status, i
 export default AvatarFrame;
 
 function PlaceholderContent({ isLoading }) {
-  const bgVideoRef = useRef(null);
-  const [videoFailed, setVideoFailed] = useState(false);
-
-  useEffect(() => {
-    const v = bgVideoRef.current;
-    if (!v) return;
-    v.muted = true;
-    v.play().catch(() => setVideoFailed(true));
-    // If the video hasn't started loading within 5 s, use fallback
-    const timer = setTimeout(() => {
-      if (v.readyState < 2) setVideoFailed(true);
-    }, 5000);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <div className="absolute inset-0 overflow-hidden bg-[#06060C]">
-      {/* Fallback gradient shown when video is blocked (old/restricted browsers) */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0d1f3c] via-[#08080F] to-[#06060C]" />
+    <div className="absolute inset-0 bg-gradient-to-br from-[#eef2ff] via-white to-[#f0f6ff] flex flex-col items-center justify-center gap-7">
 
-      {/* Looping background video — hidden via opacity if it fails */}
-      <video
-        ref={bgVideoRef}
-        autoPlay
-        loop
-        playsInline
-        preload="auto"
-        onError={() => setVideoFailed(true)}
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${videoFailed ? "opacity-0" : "opacity-100"}`}
-        src={import.meta.env.BASE_URL + "intro.mp4"}
+      <img
+        src={import.meta.env.BASE_URL + "profile.jpg"}
+        alt="Kai"
+        className={`rounded-full object-cover shadow-2xl ring-4 ring-white transition-all duration-500 ${isLoading ? "h-24 w-24 opacity-60" : "h-36 w-36 opacity-100"}`}
       />
 
-      {/* Vignette so text stays readable */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-black/25" />
-
-      {/* Centred content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-5">
-        {isLoading ? (
-          <>
-            <div className="h-10 w-10 rounded-full border-2 border-white/50 border-t-white animate-spin" />
-            <p className="text-white/65 text-base font-medium tracking-wide">Connecting…</p>
-          </>
-        ) : (
-          <h2 className="text-white text-6xl font-black tracking-tight drop-shadow-lg uppercase">
-            Meet your AI avatar
-          </h2>
-        )}
-      </div>
+      {isLoading ? (
+        <>
+          <div className="h-6 w-6 rounded-full border-2 border-slate-300 border-t-slate-600 animate-spin" />
+          <p className="text-slate-400 text-sm tracking-widest uppercase">Connecting…</p>
+        </>
+      ) : (
+        <h2 className="text-slate-800 text-5xl font-black tracking-tight uppercase text-center px-8">
+          Meet your AI avatar
+        </h2>
+      )}
     </div>
   );
 }
